@@ -13,10 +13,11 @@ import edu.smith.cs.csc212.p6.errors.EmptyListError;
 public interface P6List<T> {
 	/**
 	 * Delete the item at the front of the list.
-	 * 
 	 * @return the value of the item that was deleted.
 	 * @throws EmptyListError if the list is empty.
 	 */
+	
+	
 	public T removeFront();
 
 	/**
@@ -83,7 +84,7 @@ public interface P6List<T> {
 	 * @return the value at index.
 	 * @throws BadIndexError if the index does not exist.
 	 */
-	public T getIndex(int index);
+	public T getAtIndex(int index);
 
 	/**
 	 * Calculate the size of the list.

@@ -55,7 +55,7 @@ public class SinglyLinkedList<T> implements P6List<T>, Iterable<T> {
 	}
 
 	@Override
-	public T getIndex(int index) {
+	public T getAtIndex(int index) {
 		throw new P6NotImplemented();
 	}
 

@@ -62,7 +62,7 @@ public class DoublyLinkedList<T> implements P6List<T> {
 	}
 	
 	@Override
-	public T getIndex(int index) {
+	public T getAtIndex(int index) {
 		checkNotEmpty();
 		throw new P6NotImplemented();
 	}

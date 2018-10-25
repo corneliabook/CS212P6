@@ -23,9 +23,9 @@ public class FixedSizeList<T> implements P6List<T> {
 		if (this.size() == 0) {
 			throw new EmptyListError();
 		}
+		T value = this.getAtIndex(fill-1);
+		this.array[fill-1] = null;
 		fill--;
-		T value = this.getIndex(fill);
-		this.array[fill] = null;
 		return value;
 	}
 
@@ -34,11 +34,11 @@ public class FixedSizeList<T> implements P6List<T> {
 		if (this.size() == 0) {
 			throw new EmptyListError();
 		}
-		T removed = this.getIndex(index);
-		fill--;
-		for (int i=index; i<fill; i++) {
+		T removed = this.getAtIndex(index);
+		for (int i=index; i<fill-1; i++) {
 			this.array[i] = this.array[i+1];
 		}
+		fill--;
 		this.array[fill] = null;
 		return removed;
 	}
@@ -77,7 +77,7 @@ public class FixedSizeList<T> implements P6List<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public T getIndex(int index) {
+	public T getAtIndex(int index) {
 		if (index < 0 || index >= fill) {
 			throw new BadIndexError();
 		}
@@ -99,7 +99,7 @@ public class FixedSizeList<T> implements P6List<T> {
 		if (this.isEmpty()) {
 			throw new EmptyListError();
 		}
-		return this.getIndex(0);
+		return this.getAtIndex(0);
 	}
 
 	@Override
@@ -107,6 +107,6 @@ public class FixedSizeList<T> implements P6List<T> {
 		if (this.isEmpty()) {
 			throw new EmptyListError();
 		}
-		return this.getIndex(this.size()-1);
+		return this.getAtIndex(this.size()-1);
 	}
 }

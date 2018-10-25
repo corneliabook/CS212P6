@@ -63,7 +63,7 @@ public class ChunkyLinkedList<T> implements P6List<T> {
 
 
 	@Override
-	public T getIndex(int index) {
+	public T getAtIndex(int index) {
 		if (this.isEmpty()) {
 			throw new EmptyListError();
 		}
@@ -74,7 +74,7 @@ public class ChunkyLinkedList<T> implements P6List<T> {
 			
 			// Check whether the index should be in this chunk:
 			if (start <= index && index < end) {
-				return chunk.getIndex(index - start);
+				return chunk.getAtIndex(index - start);
 			}
 			
 			// update bounds of next chunk.

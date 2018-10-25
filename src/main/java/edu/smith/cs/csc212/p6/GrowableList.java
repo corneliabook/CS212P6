@@ -1,9 +1,10 @@
 package edu.smith.cs.csc212.p6;
 
+import edu.smith.cs.csc212.p6.errors.EmptyListError;
 import edu.smith.cs.csc212.p6.errors.P6NotImplemented;
 
 public class GrowableList<T> implements P6List<T> {
-	public static final int START_SIZE = 32;
+	public static final int START_SIZE = 2;
 	private Object[] array;
 	private int fill;
 	
@@ -36,11 +37,20 @@ public class GrowableList<T> implements P6List<T> {
 	public void addBack(T item) {
 		// I've implemented part of this for you.
 		if (fill >= this.array.length) { 
-			throw new P6NotImplemented();
+			this.makeLargerArray();
 		}
 		this.array[fill++] = item;
+		fill++;
 	}
 
+	public void makeLargerArray() {
+		Object[] newArray = new Object[fill+2];
+		for (int i=0; i<fill; i++) {
+			newArray[i] = this.array[i];
+		}
+		this.array = newArray;
+	}
+	
 	@Override
 	public void addIndex(T item, int index) {
 		throw new P6NotImplemented();
@@ -48,12 +58,12 @@ public class GrowableList<T> implements P6List<T> {
 	
 	@Override
 	public T getFront() {
-		return this.getIndex(0);
+		return this.getAtIndex(0);
 	}
 
 	@Override
 	public T getBack() {
-		return this.getIndex(this.fill-1);
+		return this.getAtIndex(this.fill-1);
 	}
 
 	/**
@@ -62,8 +72,8 @@ public class GrowableList<T> implements P6List<T> {
 	 * Do that by calling this method instead of using the array directly.
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
-	public T getIndex(int index) {
+	@Override 
+	public T getAtIndex(int index) {
 		return (T) this.array[index];
 	}
 

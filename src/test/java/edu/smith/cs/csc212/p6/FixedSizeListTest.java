@@ -39,21 +39,21 @@ public class FixedSizeListTest {
 		P6List<String> data = new FixedSizeList<String>(4);
 		data.addFront("1");
 		Assert.assertEquals(1, data.size());
-		Assert.assertEquals("1", data.getIndex(0));
+		Assert.assertEquals("1", data.getAtIndex(0));
 		data.addFront("0");
 		Assert.assertEquals(2, data.size());
-		Assert.assertEquals("0", data.getIndex(0));
-		Assert.assertEquals("1", data.getIndex(1));
+		Assert.assertEquals("0", data.getAtIndex(0));
+		Assert.assertEquals("1", data.getAtIndex(1));
 		data.addFront("-1");
 		Assert.assertEquals(3, data.size());
-		Assert.assertEquals("-1", data.getIndex(0));
-		Assert.assertEquals("0", data.getIndex(1));
-		Assert.assertEquals("1", data.getIndex(2));
+		Assert.assertEquals("-1", data.getAtIndex(0));
+		Assert.assertEquals("0", data.getAtIndex(1));
+		Assert.assertEquals("1", data.getAtIndex(2));
 		data.addFront("-2");
-		Assert.assertEquals("-2", data.getIndex(0));
-		Assert.assertEquals("-1", data.getIndex(1));
-		Assert.assertEquals("0", data.getIndex(2));
-		Assert.assertEquals("1", data.getIndex(3));
+		Assert.assertEquals("-2", data.getAtIndex(0));
+		Assert.assertEquals("-1", data.getAtIndex(1));
+		Assert.assertEquals("0", data.getAtIndex(2));
+		Assert.assertEquals("1", data.getAtIndex(3));
 	}
 	
 	@Test
@@ -61,21 +61,21 @@ public class FixedSizeListTest {
 		P6List<String> data = new FixedSizeList<String>(4);
 		data.addBack("1");
 		Assert.assertEquals(1, data.size());
-		Assert.assertEquals("1", data.getIndex(0));
+		Assert.assertEquals("1", data.getAtIndex(0));
 		data.addBack("0");
 		Assert.assertEquals(2, data.size());
-		Assert.assertEquals("0", data.getIndex(1));
-		Assert.assertEquals("1", data.getIndex(0));
+		Assert.assertEquals("0", data.getAtIndex(1));
+		Assert.assertEquals("1", data.getAtIndex(0));
 		data.addBack("-1");
 		Assert.assertEquals(3, data.size());
-		Assert.assertEquals("-1", data.getIndex(2));
-		Assert.assertEquals("0", data.getIndex(1));
-		Assert.assertEquals("1", data.getIndex(0));
+		Assert.assertEquals("-1", data.getAtIndex(2));
+		Assert.assertEquals("0", data.getAtIndex(1));
+		Assert.assertEquals("1", data.getAtIndex(0));
 		data.addBack("-2");
-		Assert.assertEquals("-2", data.getIndex(3));
-		Assert.assertEquals("-1", data.getIndex(2));
-		Assert.assertEquals("0", data.getIndex(1));
-		Assert.assertEquals("1", data.getIndex(0));
+		Assert.assertEquals("-2", data.getAtIndex(3));
+		Assert.assertEquals("-1", data.getAtIndex(2));
+		Assert.assertEquals("0", data.getAtIndex(1));
+		Assert.assertEquals("1", data.getAtIndex(0));
 	}
 	
 	/**
